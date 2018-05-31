@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 >   <span class="glyphicon glyphicon-bullhorn"></span> {{title}}</h1>
+        <p>Panel adminstrativo de Encargdos de Distritos Policiales</p>
+    </div>
+
+    <!-- this creates a google map on the page with the given lat/lng from -->
+    <!-- the component as the initial center of the map: -->
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    
+</div>

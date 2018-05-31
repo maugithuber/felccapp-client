@@ -1,5 +1,7 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async,inject } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AlertsService } from '../app/services/alert.service';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -23,5 +25,17 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
+  }));
+});
+
+describe('AlertsService', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [AlertsService]
+    });
+  });
+
+  it('should be created', inject([AlertsService], (service: AlertsService) => {
+    expect(service).toBeTruthy();
   }));
 });

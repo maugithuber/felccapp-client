@@ -1,0 +1,167 @@
+<div class="container">
+    <h1>  <span class="glyphicon glyphicon-user"></span> {{title}} </h1> 
+    
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#register">
+      Registrar 
+    </button>
+    
+    <div id="policemen">
+                    <table class="table table-bordered table-hover t">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>nombre</th>
+                                <th>email</th>
+                                <th>grado</th>
+                                <th>telefono</th>
+                                <th>opciones</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+    
+                            <tr *ngFor="let policeman of policemen; let i = index">
+                                <td>{{policeman.id}}</td>
+                                <td>{{policeman.name}}</td>
+                                <td>{{policeman.email}}</td>
+                                <td>{{policeman.grade}}</td>
+                                <td>{{policeman.phone}}</td>
+                                <td>
+                                    <a (click)="setEditPoliceman(i)" class="btn btn-warning" data-toggle="modal" data-target="#edit">
+                                        <span class="glyphicon glyphicon-edit" ></span> 
+                                    </a>
+
+                                    <a (click)="setDeletePoliceman(i)" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+                                        <span class="glyphicon glyphicon-trash" ></span> 
+                                    </a> 
+                                    
+                                </td>
+                              </tr>
+                        </tbody>
+                    </table>              
+
+        </div>     
+
+
+
+
+
+
+
+
+
+      
+
+  <!-- Modal -->
+  <form #registerPolicemanForm="ngForm" (ngSubmit)="registerPoliceman(registerPolicemanForm)"  >
+      <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Registrar efectivo policial </h4>
+            </div>
+            <div class="modal-body">
+                            <div class="form-group">
+                              <label for="email">correo electronico:</label>
+                              <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="policeman.email" >
+                            </div>
+    
+                            <div class="form-group">
+                              <label for="password">contraseña:</label>
+                              <input type="password" class="form-control" id="password" name="password" #password="ngModel" [(ngModel)]="policeman.password" >
+                            </div>
+    
+                            <div class="form-group">
+                              <label for="name">nombre completo:</label>
+                               <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="policeman.name">
+                            </div>
+                                  
+                            <div class="form-group">
+                                <label for="grades">grado:</label>
+                                <select  id ="grades" name="grades" class="form-control" [(ngModel)]="gradeSelected" >
+                                  <option *ngFor="let grade of grades" [value]="grade.name">{{grade.name}}</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="phone">telefono:</label>
+                               <input type="text" class="form-control" id="phone" name="phone" #phone="ngModel" [(ngModel)]="policeman.phone">
+                            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+              <button type="submit" class="btn btn-primary" >registrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+      <!-- Modal -->
+  <form #editPolicemanForm="ngForm" (ngSubmit)="editPoliceman(editPolicemanForm)"  >
+      <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Editar efectivo policial </h4>
+            </div>
+            <div class="modal-body">
+                            <div class="form-group">
+                              <label for="email2">correo electronico:</label>
+                              <input type="email2" class="form-control" id="email2" name="email2" #email2="ngModel" [(ngModel)]="policemanEdited.email" readonly >
+                            </div>
+    
+                            <div class="form-group">
+                              <label for="name2">nombre completo:</label>
+                               <input type="text" class="form-control" id="name2" name="name2" #name2="ngModel" [(ngModel)]="policemanEdited.name" readonly>
+                            </div>
+                                  
+                            <div class="form-group">
+                                <label for="grades2">grado:</label>
+                                <select id ="grades2" name="grades2" class="form-control" [(ngModel)]="policemanEdited.grade">
+                                    <option [value]="policemanEdited.grade" selected>{{policemanEdited.grade}}</option>     
+                                    <option *ngFor="let grade of grades" [value]="grade.name">{{grade.name}}</option>
+                                </select>
+                            </div>
+                    
+                            <div class="form-group">
+                              <label for="phone2">telefono:</label>
+                               <input type="text" class="form-control" id="phone2" name="phone2" #phone2="ngModel" [(ngModel)]="policemanEdited.phone">
+                            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+              <button type="submit" class="btn btn-success" >editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+      <!-- Modal -->
+  <div class="modal fade" id="delete" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Eliminar efectivo policial</h4>
+          </div>
+          <div class="modal-body">
+            <p>¿Estás seguro?</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            <button (click)="deletePoliceman()" type="button" class="btn btn-primary" data-dismiss="modal">Si</button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+
+    
+</div>
+
+
