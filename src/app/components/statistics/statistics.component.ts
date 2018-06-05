@@ -21,8 +21,9 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   // lat = 41.399115;
   // lng = 2.160962;
 
-  lat =-17.781307;
-  lng = -63.177182;
+
+  lat =-17.791041;
+  lng =  -63.137539;
 
   labelOptions = {
     color: 'blue',
@@ -39,6 +40,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     private _alertsService: AlertsService
   ) 
   { 
+    
   }
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
 
     this.getAlerts();
     // console.log(this.alerts);
+
   }
 
   ngAfterViewInit() {
@@ -68,7 +71,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   getAlerts(){
     this._alertsService.getAlerts().subscribe(
         response =>{
-            if(response.alerts){
+            if(response){
                 this.alerts = response;
             }else{
                 console.log('response error');
