@@ -1,0 +1,74 @@
+<div class="container">
+    <h1>  <span class="glyphicon glyphicon-user"></span> {{title}} </h1> 
+    
+    <!-- Button trigger modal
+    <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#register">
+      Registrar 
+    </button> -->
+    
+    <div id="crimes">
+                    <table class="table table-bordered table-hover t">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>fecha</th>
+                                <th>hora</th>
+                                <th>descripcion</th>
+                                <th>fecha</th>
+
+                                <th>id</th>
+                                <th>fecha</th>
+                                <th>hora</th>
+                                <th>descripcion</th>
+                                <th>fecha</th>
+
+                                <th>opciones</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+    
+                            <tr *ngFor="let crimes of crime; let i = index">
+                                <td>{{crime.id}}</td>
+                                <td>{{crime.name}}</td>
+                                <td>{{crime.email}}</td>
+                                <td>{{crime.grade}}</td>
+                                <td>{{crime.phone}}</td>
+
+                                <td>{{crime.id}}</td>
+                                <td>{{crime.name}}</td>
+                                <td>{{crime.email}}</td>
+                                <td>{{crime.grade}}</td>
+                                <td>{{crime.phone}}</td>
+                                <td>
+                                    <!-- <a (click)="setEditPoliceman(i)" class="btn btn-warning" data-toggle="modal" data-target="#edit">
+                                        <span class="glyphicon glyphicon-edit" ></span> 
+                                    </a>
+
+                                    <a (click)="setDeletePoliceman(i)" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+                                        <span class="glyphicon glyphicon-trash" ></span> 
+                                    </a>  -->
+                                    
+                                    <a  class="btn btn-primary" data-toggle="modal" data-target="#delete">
+                                        <span class="glyphicon glyphicon-trash" ></span> 
+                                    </a> 
+                                </td>
+                              </tr>
+                        </tbody>
+                    </table>              
+
+        </div>     
+
+
+
+
+
+
+
+
+
+      
+
+    
+</div>
+
+

@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AppComponent } from './app.component';
 import { PolicemenComponent } from './components/policemen/policemen.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { CrimesComponent } from './components/crimes/crimes.component';
 
 import { UserService } from './services/user.service';
 import { UserGuard } from './services/user.guard';  
@@ -23,7 +24,8 @@ import { AlertsService } from './services/alert.service';
     LoginComponent,
     HomeComponent,
     PolicemenComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    CrimesComponent
   ],
   imports: [
     routing,
