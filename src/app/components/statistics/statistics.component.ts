@@ -72,7 +72,9 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     this._alertsService.getAlerts().subscribe(
         response =>{
             if(response){
-                this.alerts = response;
+                console.log('respuesta: +'+response);
+                console.log('respuesta data: +'+response.data);
+                this.alerts = response.data;
             }else{
                 console.log('response error');
             }
