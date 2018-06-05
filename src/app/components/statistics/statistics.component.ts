@@ -39,7 +39,6 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     private _alertsService: AlertsService
   ) 
   { 
-    
   }
 
   ngOnInit() {
@@ -48,7 +47,6 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
 
     this.getAlerts();
     // console.log(this.alerts);
-
   }
 
   ngAfterViewInit() {
@@ -71,7 +69,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     this._alertsService.getAlerts().subscribe(
         response =>{
             if(response.alerts){
-                this.alerts = response.alerts;
+                this.alerts = response;
             }else{
                 console.log('response error');
             }
