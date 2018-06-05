@@ -48,7 +48,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     // console.log(this.markers);
 
     this.getAlerts();
-    // console.log(this.alerts);
+    console.log(this.alerts);
 
   }
 
@@ -72,8 +72,8 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     this._alertsService.getAlerts().subscribe(
         response =>{
             if(response > 0){
-                // console.log('respuesta: +'+response);
-                // console.log('respuesta data: +'+response.data);
+                console.log('respuesta: +'+response);
+                console.log('respuesta data: +'+response.data);
                 this.alerts = response;
             }else{
                 console.log('response error alerts');
