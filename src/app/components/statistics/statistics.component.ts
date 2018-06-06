@@ -32,7 +32,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     fontWeight: 'bold',
     text: 'Distrito policial 1',
     }
-    icon = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+    icon = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png';
   @ViewChild('AgmMap') agmMap: AgmMap;
 
   constructor(
@@ -74,7 +74,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
             if(response > 0){
                 // console.log('respuesta: +'+response);
                 // console.log('respuesta data: +'+response.data);
-                this.alerts = response;
+                this.alerts = response.alerts;
                 console.log("correcta response");
             }else{
                 console.log('response error de alerts');
