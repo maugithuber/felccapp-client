@@ -64,6 +64,9 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     });
   }
 
+
+  
+
   getMarkers(): void {
     this.markers = this.markersService.getMarkers();
   }
@@ -71,9 +74,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   getAlerts(){
     this._alertsService.getAlerts().subscribe(
         response =>{
-            if(response > 0){
-                // console.log('respuesta: +'+response);
-                // console.log('respuesta data: +'+response.data);
+            if(response.alerts){
                 this.alerts = response.alerts;
                 console.log("correcta response");
             }else{
