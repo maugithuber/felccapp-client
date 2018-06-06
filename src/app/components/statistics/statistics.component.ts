@@ -53,10 +53,10 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.agmMap);
+    // console.log(this.agmMap);
     this.agmMap.mapReady.subscribe(map => {
       const bounds: LatLngBounds = new google.maps.LatLngBounds();
-      for (const a of this.alerts) {
+      for (var a of this.alerts) {
         bounds.extend(new google.maps.LatLng(  a.lat  , a.lng));
       }
       map.fitBounds(bounds);
@@ -76,9 +76,9 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         response =>{
             if(response.alerts){
                 this.alerts = response.alerts;
-                console.log("correcta response");
+                // console.log("correcta response");
             }else{
-                console.log('response error de alerts');
+                console.log('response error with alerts');
             }
         },
         error =>{
