@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 //models
 import { Crime } from '../../models/crime';
-import { Grade } from '../../models/grade';
+
 //services
 import { CrimeService } from '../../services/crime.service';
 import { UserService } from '../../services/user.service';
@@ -26,10 +26,6 @@ export class CrimesComponent implements OnInit{
     public crimes: Crime[];
     public total;
 
-    public grades:Grade[];
-    public gradeSelected:string;
-    public policemanEdited;
-    public deleted_id:any;
 
     constructor(
         private _route: ActivatedRoute,
@@ -51,9 +47,8 @@ export class CrimesComponent implements OnInit{
     getCrimes(user){
         this._crimeService.getCrimes(user).subscribe(
             response =>{
-                if(response.policemen){
-                    this.total = response.qty;
-                    this.crime = response.policemen;;
+                if(response.crimes){
+                    this.crimes = response.crimes;;
                 }else{
                     console.log('error');
                 }
