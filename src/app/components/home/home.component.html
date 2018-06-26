@@ -5,14 +5,14 @@
     </div>
 
     <!-- this creates a google map on the page with the given lat/lng from -->
-    <!-- the component as the initial center of the map: -->
-    <!-- <agm-map [latitude]="lat" [longitude]="lng">
+    <!-- the component as the initial center of the map: 
+    <agm-map [latitude]="lat" [longitude]="lng">
         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map> -->
+<h3>Distritos policiales en Santa Cruz </h3>
+    <agm-map #AgmMap [latitude]="lat" [longitude]="lng" (idle)="mapIdle()" >
+        <agm-marker *ngFor="let a of alerts" [label]="a.name"  [latitude]="a.lat" [longitude]="a.lng" [iconUrl]="icon"></agm-marker>
 
-    <h1>politicas de privacidad</h1>
-    <ul>
-        <li>se le pide permisos la camara solamente para tomar fotos de lugares del hecho</li>
-        <li>se le pide permisos de audio solo para rellenar algunos campos mediante la voz</li>
-    </ul>
+      </agm-map>
+
 </div>

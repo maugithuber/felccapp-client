@@ -12,7 +12,7 @@
     <agm-map #AgmMap [latitude]="lat" [longitude]="lng" (idle)="mapIdle()" >
         <agm-marker *ngFor="let a of alerts" [latitude]="a.lat" [longitude]="a.lng"></agm-marker>
 
-        <agm-marker [label]="labelOptions" [iconUrl]="icon"[latitude]="lat" [longitude]="lng"></agm-marker>
+      <!--    <agm-marker [label]="labelOptions" [iconUrl]="icon"[latitude]="lat" [longitude]="lng"></agm-marker> -->
       </agm-map>
       
 </div>

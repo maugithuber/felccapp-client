@@ -18,8 +18,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   title = 'Estadisticas de Hechos delictivos';
   public markers: MyMarker[];
   public alerts: Alert[];
-  // lat = 41.399115;
-  // lng = 2.160962;
+  public alertsOptions: any[];
 
 
   lat =-17.791041;
@@ -32,7 +31,10 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     fontWeight: 'bold',
     text: 'Distrito policial 1',
     }
+
+
     icon = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+
   @ViewChild('AgmMap') agmMap: AgmMap;
 
   constructor(

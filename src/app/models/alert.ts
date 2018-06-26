@@ -19,4 +19,5 @@ export class Alert {
     id: number;
     lat: number;
     lng: number;
+    name: Text;
 }

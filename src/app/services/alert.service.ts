@@ -16,5 +16,8 @@ export class AlertsService{
         return this._http.get(this.url+'get-alerts');
     }
 
+    getDistricts():Observable<any>{
+        return this._http.get(this.url+'getDistrictsweb');
+    }
 
 }
