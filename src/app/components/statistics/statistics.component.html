@@ -14,5 +14,114 @@
 
       <!--    <agm-marker [label]="labelOptions" [iconUrl]="icon"[latitude]="lat" [longitude]="lng"></agm-marker> -->
       </agm-map>
+
+
+
       
+
+
+<div class="container">
+  <h2>Alertas por ROBOS</h2>        
+    <table class="table table-bordered table-hover t">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>fecha</th>
+                <th>hora</th>
+                <th>categoria</th>
+                <th>descripcion</th>
+        
+              </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let alert of robos; let i = index">
+   
+                <td>{{alert.id}}</td>
+                <td>{{alert.date}}</td>
+                <td>{{alert.time}}</td>
+                <td>{{alert.category}}</td>
+                <td>{{alert.description}}</td>
+              </tr>
+        </tbody>
+    </table>              
+</div>
+
+<div class="container">
+    <h2>Alertas por VIOLACION</h2>        
+      <table class="table table-bordered table-hover t">
+          <thead>
+              <tr>
+                  <th>id</th>
+                  <th>fecha</th>
+                  <th>hora</th>
+                  <th>categoria</th>
+                  <th>descripcion</th>
+          
+                </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let alert of violaciones; let i = index">
+     
+                  <td>{{alert.id}}</td>
+                  <td>{{alert.date}}</td>
+                  <td>{{alert.time}}</td>
+                  <td>{{alert.category}}</td>
+                  <td>{{alert.description}}</td>
+                </tr>
+          </tbody>
+      </table>              
+  </div>
+
+  <div class="container">
+      <h2>Alertas por VIOLENCIA</h2>        
+        <table class="table table-bordered table-hover t">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>fecha</th>
+                    <th>hora</th>
+                    <th>categoria</th>
+                    <th>descripcion</th>
+            
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let alert of violencias; let i = index">
+       
+                    <td>{{alert.id}}</td>
+                    <td>{{alert.date}}</td>
+                    <td>{{alert.time}}</td>
+                    <td>{{alert.category}}</td>
+                    <td>{{alert.description}}</td>
+                  </tr>
+            </tbody>
+        </table>              
+    </div>
+
+
+    <div class="container">
+        <h2>Estadisticas generales</h2>        
+          <table class="table table-bordered table-hover t">
+              <thead>
+                  <tr>
+                      <th>categoria</th>
+                      <th>cantidad</th>
+
+              
+                    </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let alert of stats; let i = index">
+         
+                      <td>{{alert.categoria}}</td>
+                      <td>{{alert.cantidad}}</td>
+          
+                    </tr>
+              </tbody>
+          </table>              
+      </div>
+  
+
+
+
 </div>

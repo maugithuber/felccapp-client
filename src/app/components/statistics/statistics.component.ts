@@ -18,6 +18,10 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   title = 'Estadisticas de Hechos delictivos';
   public markers: MyMarker[];
   public alerts: Alert[];
+  public robos: Alert[];
+  public violaciones: Alert[];
+  public violencias: Alert[];
+  public stats: Alert[];
   public alertsOptions: any[];
 
 
@@ -50,6 +54,10 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     // console.log(this.markers);
 
     this.getAlerts();
+    this.getRobo();
+    this.getViolacion();
+    this.getViolencia();
+    this.getStats();
     // console.log(this.alerts);
 
   }
@@ -78,7 +86,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         response =>{
             if(response.alerts){
                 this.alerts = response.alerts;
-                // console.log("correcta response");
+                console.log(this.alerts);
             }else{
                 console.log('response error with alerts');
             }
@@ -89,7 +97,81 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
             console.log(errorMessage);
         }
     );
-}
+  }
+
+  getRobo(){
+    this._alertsService.getRobo().subscribe(
+        response =>{
+            if(response.alerts){
+                this.robos = response.alerts;
+              
+            }else{
+                console.log('response error with alerts');
+            }
+        },
+        error =>{
+           var errorMessage = <any>error;
+           console.log("error en alertas");
+            console.log(errorMessage);
+        }
+    );
+  }
+
+  getViolacion(){
+    this._alertsService.getViolacion().subscribe(
+        response =>{
+            if(response.alerts){
+                this.violaciones = response.alerts;
+              console.log(this.violaciones);
+            }else{
+                console.log('response error with alerts');
+            }
+        },
+        error =>{
+           var errorMessage = <any>error;
+           console.log("error en alertas");
+            console.log(errorMessage);
+        }
+    );
+  }
+
+  getViolencia(){
+    this._alertsService.getViolencia().subscribe(
+        response =>{
+            if(response.alerts){
+                this.violencias = response.alerts;
+               
+            }else{
+                console.log('response error with alerts');
+            }
+        },
+        error =>{
+           var errorMessage = <any>error;
+           console.log("error en alertas");
+            console.log(errorMessage);
+        }
+    );
+  }
+
+
+  
+  getStats(){
+    this._alertsService.getStats().subscribe(
+        response =>{
+            if(response.alerts){
+                this.stats = response.alerts;
+               
+            }else{
+                console.log('response error with alerts');
+            }
+        },
+        error =>{
+           var errorMessage = <any>error;
+           console.log("error en alertas");
+            console.log(errorMessage);
+        }
+    );
+  }
 
 
 

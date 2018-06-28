@@ -20,4 +20,8 @@ export class Alert {
     lat: number;
     lng: number;
     name: Text;
+    description:Text;
+    time: Text;
+    date: Text;
+    category:Text;
 }

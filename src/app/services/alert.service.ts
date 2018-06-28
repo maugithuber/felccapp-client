@@ -20,4 +20,18 @@ export class AlertsService{
         return this._http.get(this.url+'getDistrictsweb');
     }
 
+
+    getRobo():Observable<any>{
+        return this._http.get(this.url+'get-robo');
+    }
+    getViolacion():Observable<any>{
+        return this._http.get(this.url+'get-violacion');
+    }
+    getViolencia():Observable<any>{
+        return this._http.get(this.url+'get-violencia');
+    }
+
+    getStats():Observable<any>{
+        return this._http.get(this.url+'get-stats');
+    }
 }
