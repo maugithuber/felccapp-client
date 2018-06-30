@@ -19,6 +19,11 @@ import { UserGuard } from './services/user.guard';
 import { MarkersService } from './markers.service';
 import { AlertsService } from './services/alert.service';
 
+import { ChartsModule } from 'ng2-charts';
+import { LineaComponent } from './components/linea/linea.component';
+import { BarraComponent } from './components/barra/barra.component';
+import { DonaComponent } from './components/dona/dona.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +32,17 @@ import { AlertsService } from './services/alert.service';
     PolicemenComponent,
     StatisticsComponent,
     CrimesComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    LineaComponent,
+    BarraComponent,
+    DonaComponent
   ],
   imports: [
     routing,
     FormsModule,
     BrowserModule,
     HttpClientModule,
+    ChartsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDCwUU-Pks7sBgQ2RKzRqd2JwSPnfXkjJU'
     })
