@@ -16,13 +16,11 @@ declare var google: any;
 
 export class HomeComponent implements OnInit, AfterViewInit {
     public title:string;
- 
-
     public markers: MyMarker[];
-    public alerts: Alert[];
+    public alerts: any[];
 
-    lat =-17.791041;
-    lng =  -63.137539;
+    lat = -17.791041;
+    lng = -63.137539;
 
     labelOptions = {
         color: 'blue',
@@ -34,24 +32,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
         icon = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png';
       @ViewChild('AgmMap') agmMap: AgmMap;
     
-
     constructor(
         private markersService: MarkersService,
         private _alertsService: AlertsService
     ){
         this.title = 'FELCCAPP';
-    
-
     }
 
     ngOnInit(){
         console.log('home.component.ts cargado');
         this.getMarkers();
-    
         this.getDistricts();
-     
-    }
-
+        }
 
     ngAfterViewInit() {
         // console.log(this.agmMap);
@@ -65,13 +57,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
         });
       }
 
-
-
     getMarkers(): void {
         this.markers = this.markersService.getMarkers();
-      }
+    }
     
-      getDistricts(){
+    getDistricts(){
         this._alertsService.getDistricts().subscribe(
             response =>{
                 if(response.districts){
@@ -88,10 +78,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
             }
         );
     }
-
     
-  mapIdle() {
-    console.log('idle');
+    mapIdle() {
+        console.log('idle');
   }
     
 }

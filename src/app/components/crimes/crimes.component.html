@@ -6,7 +6,7 @@
       Registrar 
     </button> -->
     
-    <div id="crimes">
+    <div id="crimes" class="table-responsive">
                     <table class="table table-bordered table-hover t">
                         <thead>
                             <tr>
@@ -16,42 +16,52 @@
                                 <th>descripcion</th>
                                 <th>fecha</th>
 
-                                <th>id</th>
-                                <th>fecha</th>
-                                <th>hora</th>
-                                <th>descripcion</th>
-                                <th>fecha</th>
-
-                                <th>opciones</th>
+                                <th>Denunciante nombre</th>
+                                <th>Denunciante fecha nacimiento</th>
+                                <th>Denunciante ocupacion</th>
+                                <th>Denunciante direccion</th>
+                                <th>Denunciante estado civil</th>
+                                
+                                <th>Victitma nombre</th>
+                                <th>Victitma fecha nacimiento</th>
+                                <th>Victitma ocupacion</th>
+                                <th>Victitma direccion</th>
+                                <th>Victitma estado civil</th>
+                                
+                                <th>Aprehendido nombre</th>
+                                <th>Aprehendido fecha nacimiento</th>
+                                <th>Aprehendido ocupacion</th>
+                                <th>Aprehendido direccion</th>
+                                <th>Aprehendido estado civil</th>
                               </tr>
                         </thead>
                         <tbody>
     
-                            <tr *ngFor="let crimes of crime; let i = index">
+                            <tr *ngFor="let crime of crimes; let i = index">
                                 <td>{{crime.id}}</td>
-                                <td>{{crime.name}}</td>
-                                <td>{{crime.email}}</td>
-                                <td>{{crime.grade}}</td>
-                                <td>{{crime.phone}}</td>
+                                <td>{{crime.date}}</td>
+                                <td>{{crime.time}}</td>
+                                <td>{{crime.place}}</td>
+                                <td>{{crime.description}}</td>
 
-                                <td>{{crime.id}}</td>
-                                <td>{{crime.name}}</td>
-                                <td>{{crime.email}}</td>
-                                <td>{{crime.grade}}</td>
-                                <td>{{crime.phone}}</td>
-                                <td>
-                                    <!-- <a (click)="setEditPoliceman(i)" class="btn btn-warning" data-toggle="modal" data-target="#edit">
-                                        <span class="glyphicon glyphicon-edit" ></span> 
-                                    </a>
+                                <td>{{crime.d_name}}</td>
+                                <td>{{crime.d_bithdate}}</td>
+                                <td>{{crime.d_occupation}}</td>
+                                <td>{{crime.d_home}}</td>
+                                <td>{{crime.d_civilstatus}}</td>
 
-                                    <a (click)="setDeletePoliceman(i)" class="btn btn-danger" data-toggle="modal" data-target="#delete">
-                                        <span class="glyphicon glyphicon-trash" ></span> 
-                                    </a>  -->
-                                    
-                                    <a  class="btn btn-primary" data-toggle="modal" data-target="#delete">
-                                        <span class="glyphicon glyphicon-trash" ></span> 
-                                    </a> 
-                                </td>
+                                <td>{{crime.v_name}}</td>
+                                <td>{{crime.v_bithdate}}</td>
+                                <td>{{crime.v_occupation}}</td>
+                                <td>{{crime.v_home}}</td>
+                                <td>{{crime.v_civilstatus}}</td>
+
+                                <td>{{crime.a_name}}</td>
+                                <td>{{crime.a_bithdate}}</td>
+                                <td>{{crime.a_occupation}}</td>
+                                <td>{{crime.a_home}}</td>
+                                <td>{{crime.a_civilstatus}}</td>
+                    
                               </tr>
                         </tbody>
                     </table>              

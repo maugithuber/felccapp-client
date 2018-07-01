@@ -48,7 +48,8 @@ export class CrimesComponent implements OnInit{
         this._crimeService.getCrimes(user).subscribe(
             response =>{
                 if(response.crimes){
-                    this.crimes = response.crimes;;
+                    this.crimes = response.crimes;
+                    console.log(response.crimes);
                 }else{
                     console.log('error');
                 }

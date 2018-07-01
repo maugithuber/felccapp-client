@@ -4,6 +4,7 @@ import { MarkersService } from '../../markers.service';
 import { AlertsService } from '../../services/alert.service';
 import { GoogleMapsAPIWrapper, AgmMap, LatLngBounds, LatLngBoundsLiteral} from '@agm/core';
 import { Alert } from '../../models/alert';
+import { forEach } from '@angular/router/src/utils/collection';
 
 declare var google: any;
 
@@ -16,17 +17,16 @@ declare var google: any;
 export class StatisticsComponent implements OnInit, AfterViewInit {
 
   title = 'Estadisticas de Hechos delictivos';
-  public markers: MyMarker[];
-  public alerts: Alert[];
-  public robos: Alert[];
-  public violaciones: Alert[];
-  public violencias: Alert[];
-  public stats: Alert[];
+  public markers: any[];
+  public alerts: any[];
+  public robos: any[];
+  public violaciones: any[];
+  public violencias: any[];
+  public stats: any[];
   public alertsOptions: any[];
 
-
-  lat =-17.791041;
-  lng =  -63.137539;
+  lat = -17.791041;
+  lng = -63.137539;
 
   labelOptions = {
     color: 'blue',
@@ -36,10 +36,9 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     text: 'Distrito policial 1',
     }
 
-
     icon = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png';
 
-  @ViewChild('AgmMap') agmMap: AgmMap;
+    @ViewChild('AgmMap') agmMap: AgmMap;
 
   constructor(
     private markersService: MarkersService,
@@ -51,19 +50,15 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.getMarkers();
-    // console.log(this.markers);
 
     this.getAlerts();
     this.getRobo();
     this.getViolacion();
     this.getViolencia();
     this.getStats();
-    // console.log(this.alerts);
-
-  }
+    }
 
   ngAfterViewInit() {
-    // console.log(this.agmMap);
     this.agmMap.mapReady.subscribe(map => {
       const bounds: LatLngBounds = new google.maps.LatLngBounds();
       for (var a of this.alerts) {
@@ -73,10 +68,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
       map.panToBounds(bounds); 
     });
   }
-
-
   
-
   getMarkers(): void {
     this.markers = this.markersService.getMarkers();
   }
@@ -104,8 +96,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         response =>{
             if(response.alerts){
                 this.robos = response.alerts;
-              
-            }else{
+                          }else{
                 console.log('response error with alerts');
             }
         },
@@ -153,13 +144,16 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
     );
   }
 
-
-  
   getStats(){
     this._alertsService.getStats().subscribe(
         response =>{
             if(response.alerts){
                 this.stats = response.alerts;
+                console.log(this.stats);
+                let array = [1,2,3];
+                for (let i = 0; i < this.stats.length; i++) {
+                  console.log(this.stats[i]);
+                }
                
             }else{
                 console.log('response error with alerts');
